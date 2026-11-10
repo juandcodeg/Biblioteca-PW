@@ -3,11 +3,16 @@ from flask import Flask, render_template
 
 import db
 from config import Config
+from routes.autores import bp as autores_bp
+from routes.categorias import bp as categorias_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
 db.init_app(app)
+
+app.register_blueprint(autores_bp)
+app.register_blueprint(categorias_bp)
 
 
 @app.route("/")
