@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block content %}
+<h1 class="h3">{{ titulo }}</h1>
+<div class="card"><div class="card-body">
+  <form method="post" novalidate>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre *</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" value="{{ socio.nombre or '' }}">
+    </div>
+    <div class="mb-3">
+      <label for="documento" class="form-label">Documento *</label>
+      <input type="text" class="form-control" id="documento" name="documento" value="{{ socio.documento or '' }}">
+    </div>
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo *</label>
+      <input type="email" class="form-control" id="correo" name="correo" value="{{ socio.correo or '' }}">
+    </div>
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input type="text" class="form-control" id="telefono" name="telefono" value="{{ socio.telefono or '' }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{{ url_for('socios.listar') }}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div></div>
+{% endblock %}

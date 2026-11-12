@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Socios{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3">Socios</h1>
+  <a href="{{ url_for('socios.crear') }}" class="btn btn-primary">+ Nuevo socio</a>
+</div>
+
+<table class="table table-striped table-hover bg-white">
+  <thead class="table-dark">
+    <tr><th>ID</th><th>Nombre</th><th>Documento</th><th>Correo</th><th>Teléfono</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+    {% for s in socios %}
+    <tr>
+      <td>{{ s.id_socio }}</td>
+      <td>{{ s.nombre }}</td>
+      <td>{{ s.documento }}</td>
+      <td>{{ s.correo }}</td>
+      <td>{{ s.telefono or '' }}</td>
+      <td>
+        <a href="{{ url_for('socios.editar', id=s.id_socio) }}" class="btn btn-sm btn-warning">Editar</a>
+        <form method="post" action="{{ url_for('socios.eliminar', id=s.id_socio) }}" class="d-inline"
+              onsubmit="return confirm('¿Seguro que deseas eliminar este socio?');">
+          <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="6" class="text-center">No hay registros.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
