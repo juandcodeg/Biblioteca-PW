@@ -6,6 +6,7 @@ from config import Config
 from routes.autores import bp as autores_bp
 from routes.categorias import bp as categorias_bp
 from routes.socios import bp as socios_bp
+from routes.libros import bp as libros_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -15,6 +16,7 @@ db.init_app(app)
 app.register_blueprint(autores_bp)
 app.register_blueprint(categorias_bp)
 app.register_blueprint(socios_bp)
+app.register_blueprint(libros_bp)
 
 
 @app.route("/")

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block content %}
+<h1 class="h3">{{ titulo }}</h1>
+<div class="card"><div class="card-body">
+  <form method="post" novalidate>
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título *</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" value="{{ libro.titulo or '' }}">
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="isbn" class="form-label">ISBN *</label>
+        <input type="text" class="form-control" id="isbn" name="isbn" value="{{ libro.isbn or '' }}">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="anio" class="form-label">Año *</label>
+        <input type="number" class="form-control" id="anio" name="anio" value="{{ libro.anio or '' }}">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="ejemplares" class="form-label">Ejemplares *</label>
+        <input type="number" class="form-control" id="ejemplares" name="ejemplares" value="{{ libro.ejemplares if libro.ejemplares is not none else '' }}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="id_autor" class="form-label">Autor *</label>
+        <select class="form-select" id="id_autor" name="id_autor">
+          <option value="">Seleccione...</option>
+          {% for a in autores %}
+            <option value="{{ a.id_autor }}" {% if libro.id_autor|string == a.id_autor|string %}selected{% endif %}>{{ a.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="id_categoria" class="form-label">Categoría *</label>
+        <select class="form-select" id="id_categoria" name="id_categoria">
+          <option value="">Seleccione...</option>
+          {% for c in categorias %}
+            <option value="{{ c.id_categoria }}" {% if libro.id_categoria|string == c.id_categoria|string %}selected{% endif %}>{{ c.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{{ url_for('libros.listar') }}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div></div>
+{% endblock %}
