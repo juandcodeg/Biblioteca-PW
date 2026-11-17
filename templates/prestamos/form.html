@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block content %}
+<h1 class="h3">{{ titulo }}</h1>
+<div class="card"><div class="card-body">
+  <form method="post" novalidate>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="id_libro" class="form-label">Libro *</label>
+        <select class="form-select" id="id_libro" name="id_libro">
+          <option value="">Seleccione...</option>
+          {% for l in libros %}
+            <option value="{{ l.id_libro }}" {% if prestamo.id_libro|string == l.id_libro|string %}selected{% endif %}>{{ l.titulo }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="id_socio" class="form-label">Socio *</label>
+        <select class="form-select" id="id_socio" name="id_socio">
+          <option value="">Seleccione...</option>
+          {% for s in socios %}
+            <option value="{{ s.id_socio }}" {% if prestamo.id_socio|string == s.id_socio|string %}selected{% endif %}>{{ s.nombre }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="fecha_prestamo" class="form-label">Fecha de préstamo *</label>
+        <input type="date" class="form-control" id="fecha_prestamo" name="fecha_prestamo" value="{{ prestamo.fecha_prestamo or '' }}">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="fecha_devolucion" class="form-label">Fecha de devolución</label>
+        <input type="date" class="form-control" id="fecha_devolucion" name="fecha_devolucion" value="{{ prestamo.fecha_devolucion or '' }}">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="estado" class="form-label">Estado *</label>
+        <select class="form-select" id="estado" name="estado">
+          <option value="Prestado" {% if prestamo.estado == 'Prestado' %}selected{% endif %}>Prestado</option>
+          <option value="Devuelto" {% if prestamo.estado == 'Devuelto' %}selected{% endif %}>Devuelto</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{{ url_for('prestamos.listar') }}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div></div>
+{% endblock %}
