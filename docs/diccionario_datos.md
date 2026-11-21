@@ -2,7 +2,7 @@
 
 ## 1. Diagrama MER
 
-![MER](MER.svg)
+![MER](MER.png)
 
 **Relaciones y cardinalidades**
 

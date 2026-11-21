@@ -14,7 +14,7 @@ Tablas: autores, categorias, socios, libros (tiene FK a autores y categorias) y 
 
 ## MER
 
-![MER](docs/MER.svg)
+![MER](docs/MER.png)
 
 El diccionario de datos está en docs/diccionario_datos.md y el plan de pruebas en docs/plan_pruebas.md.
 
