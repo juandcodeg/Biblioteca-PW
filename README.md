@@ -14,7 +14,7 @@ Esta hecho con Flask, PostgreSQL y Bootstrap.
 
 ![MER](docs/MER.png)
 
-El diccionario de datos esta en docs/diccionario_datos.md y el plan de pruebas en docs/plan_pruebas.md
+El diccionario de datos esta en docs/diccionario_datos.docx y el plan de pruebas con las capturas en docs/plan_pruebas.docx
 
 ## Como correrlo
 
