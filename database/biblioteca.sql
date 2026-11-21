@@ -9,6 +9,9 @@
 --   2) Conectarse a biblioteca_db y ejecutar este archivo.
 -- =====================================================
 
+-- El archivo está guardado en UTF-8 (para que las tildes y la ñ se vean bien en Windows)
+SET client_encoding = 'UTF8';
+
 -- Si las tablas ya existen, las borramos para empezar limpio
 DROP TABLE IF EXISTS prestamos;
 DROP TABLE IF EXISTS libros;
