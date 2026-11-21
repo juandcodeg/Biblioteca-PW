@@ -1,35 +1,33 @@
-# Biblioteca - Proyecto Final Programación Web
+# Biblioteca
 
-Proyecto final de Programación Web. Es una aplicación en Flask con PostgreSQL para manejar una biblioteca: autores, categorías, libros, socios y préstamos.
+Proyecto final de Programacion Web
 
-## Integrante
+Hecho por: Juan David Gamboa Herrera
 
-- Juan David Gamboa Herrera
+## De que se trata
 
-## Tema
+Es una pagina para manejar una biblioteca. Se pueden registrar autores, categorias, libros, socios y los prestamos de libros. En todas se puede ver la lista, agregar, editar y eliminar.
 
-La biblioteca guarda sus libros con su autor y su categoría, los socios que se inscriben y los préstamos de libros a los socios. En cada tabla se puede listar, crear, editar y eliminar.
-
-Tablas: autores, categorias, socios, libros (tiene FK a autores y categorias) y prestamos (tiene FK a libros y socios).
+Esta hecho con Flask, PostgreSQL y Bootstrap.
 
 ## MER
 
 ![MER](docs/MER.png)
 
-El diccionario de datos está en docs/diccionario_datos.md y el plan de pruebas en docs/plan_pruebas.md.
+El diccionario de datos esta en docs/diccionario_datos.md y el plan de pruebas en docs/plan_pruebas.md
 
-## Instalación
+## Como correrlo
 
-1. Clonar el repositorio:
+1. Clonar el repo
 
 ```
 git clone https://github.com/juandcodeg/Biblioteca-PW.git
 cd Biblioteca-PW
 ```
 
-2. En pgAdmin crear la base de datos biblioteca_db, abrir la Query Tool y ejecutar el archivo .sql de la carpeta database.
+2. Crear la base de datos biblioteca_db en pgAdmin y en la Query Tool correr el backup.sql que esta en la carpeta database
 
-3. Crear el entorno virtual e instalar las librerías:
+3. Crear el entorno virtual e instalar lo del requirements
 
 ```
 python -m venv .venv
@@ -37,16 +35,20 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-4. Copiar el archivo .env.example, cambiarle el nombre a .env y poner la contraseña de PostgreSQL.
+4. Copiar el .env.example, ponerle de nombre .env y cambiar la contraseña por la de su postgres
 
-5. Ejecutar:
+5. Correr la app
 
 ```
 python app.py
 ```
 
-Y abrir http://127.0.0.1:5000
+y entrar a http://127.0.0.1:5000
 
 ## Capturas
 
-Las capturas de las pruebas están en la carpeta docs/evidencias.
+![libros](docs/evidencias/CP-10.png)
+
+![prestamos](docs/evidencias/CP-13.png)
+
+Las demas estan en docs/evidencias
